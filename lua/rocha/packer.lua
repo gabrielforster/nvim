@@ -42,4 +42,17 @@ return require('packer').startup(function(use)
 			{'rafamadriz/friendly-snippets'}, -- Optional
 		}
 	}
+
+    use {
+        "windwp/nvim-autopairs",
+        module = { "nvim-autopairs.completion.cmp", "nvim-autopairs" },
+    }
+
+    use {
+        "windwp/nvim-ts-autotag",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-ts-autotag").setup { enable = true }
+        end,
+    }
 end)
