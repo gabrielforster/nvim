@@ -15,3 +15,8 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- TODO -> Search how to open a file finder and then open this file 
+-- vim.keymap.set("n", "<C-e>", vim.cmd.tabe)
+vim.keymap.set("n", "<C-j>", vim.cmd.tabp)
+vim.keymap.set("n", "<C-k>", vim.cmd.tabn)
