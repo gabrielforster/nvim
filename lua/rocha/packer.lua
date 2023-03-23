@@ -43,16 +43,13 @@ return require('packer').startup(function(use)
 		}
 	}
 
-    use {
-        "windwp/nvim-autopairs",
-        module = { "nvim-autopairs.completion.cmp", "nvim-autopairs" },
-    }
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
 
-    use {
-        "windwp/nvim-ts-autotag",
-        event = "InsertEnter",
-        config = function()
-            require("nvim-ts-autotag").setup { enable = true }
-        end,
-    }
+  use {
+    "windwp/nvim-ts-autotag",
+    config = function() require('nvim-ts-autotag').setup() end
+  }
 end)
