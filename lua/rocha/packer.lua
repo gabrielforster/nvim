@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
 	vim.cmd.colorscheme("darkplus")
 
 	use ( 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+  use("nvim-treesitter/nvim-treesitter-context", {run = ':TSUpdate'});
 
 	use {
 		'VonHeikemen/lsp-zero.nvim',
