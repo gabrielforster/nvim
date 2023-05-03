@@ -14,7 +14,9 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
+  -- Themes
 	use "lunarvim/darkplus.nvim"
+  use { "bluz71/vim-moonfly-colors", as = "moonfly" }
 
 	vim.cmd.colorscheme("darkplus")
 
