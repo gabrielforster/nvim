@@ -17,6 +17,8 @@ return require('packer').startup(function(use)
   -- Themes
 	use "lunarvim/darkplus.nvim"
   use { "bluz71/vim-moonfly-colors", as = "moonfly" }
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use ({ 'projekt0n/github-nvim-theme' })
 
 	vim.cmd.colorscheme("darkplus")
 
@@ -59,5 +61,7 @@ return require('packer').startup(function(use)
   use {
     'lewis6991/gitsigns.nvim',
   }
+
+  use 'nvim-tree/nvim-web-devicons'
 
 end)
