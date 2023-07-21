@@ -14,13 +14,11 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-  -- Themes
-	use "lunarvim/darkplus.nvim"
-  use { "bluz71/vim-moonfly-colors", as = "moonfly" }
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use ({ 'projekt0n/github-nvim-theme' })
+  use {
+    'lewis6991/gitsigns.nvim',
+  }
 
-	vim.cmd.colorscheme("darkplus")
+  use({ 'rose-pine/neovim', as = 'rose-pine' })
 
 	use ( 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use("nvim-treesitter/nvim-treesitter-context", {run = ':TSUpdate'});
@@ -58,10 +56,8 @@ return require('packer').startup(function(use)
     config = function() require('nvim-ts-autotag').setup() end
   }
 
-  use {
-    'lewis6991/gitsigns.nvim',
-  }
-
   use 'nvim-tree/nvim-web-devicons'
+  
+  use 'ThePrimeagen/vim-be-good'
 
 end)
