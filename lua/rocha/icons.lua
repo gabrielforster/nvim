@@ -25,7 +25,7 @@ require'nvim-web-devicons'.setup {
  -- takes effect when `strict` is true
  override_by_filename = {
   [".gitignore"] = {
-    icon = "",
+    icon = "",
     color = "#f1502f",
     name = "Gitignore"
   }
@@ -37,6 +37,11 @@ require'nvim-web-devicons'.setup {
     icon = "",
     color = "#81e043",
     name = "Log"
+  },
+  ["go"] = {
+    icon = "󰟓",
+    color = "#79d4fd",
+    name = "Go"
   }
  };
 }
