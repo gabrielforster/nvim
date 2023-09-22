@@ -42,6 +42,36 @@ require'nvim-web-devicons'.setup {
     icon = "󰟓",
     color = "#79d4fd",
     name = "Go"
-  }
+  },
+  ["vue"] = {
+    icon = "󰡄",
+    color = "#41b883",
+    name = "Vue"
+  },
+  ["js"] = {
+    icon = "",
+    color = "#efd81d",
+    name = "Javascript"
+  },
+  ["sql"] = {
+    icons = "",
+    color = "#f29111",
+    name = "SQL"
+  },
+  ["rs"] = {
+    icons = "󱘗",
+    color = "#f29111",
+    name = "Rust"
+  },
+  ["html"] = {
+    icons = "",
+    color = "#e34c26",
+    name = "HTML"
+  },
+  ["cpp"] = {
+    icons = "󰙲",
+    color = "#e34c26",
+    name = "HTML"
+  },
  };
 }

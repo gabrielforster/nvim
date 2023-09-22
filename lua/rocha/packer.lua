@@ -57,7 +57,14 @@ return require('packer').startup(function(use)
   }
 
   use 'nvim-tree/nvim-web-devicons'
-  
+
   use 'ThePrimeagen/vim-be-good'
+
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
 
 end)

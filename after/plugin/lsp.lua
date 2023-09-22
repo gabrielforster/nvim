@@ -1,10 +1,10 @@
 local lsp = require("lsp-zero")
+local lspconfig = require("lspconfig")
 
 lsp.preset("recommended")
 
 lsp.ensure_installed({
 	'tsserver',
-	'rust_analyzer',
 })
 
 -- Fix Undefined global 'vim'
@@ -18,6 +18,19 @@ lsp.configure('lua-language-server', {
 	}
 })
 
+lspconfig.clangd.setup({
+  on_attach = function(client, buffer)
+    client.server_capabilities.signatureHelpProvider = false
+    on_attach(client, buffer)
+  end,
+  cmd = { "clangd", "--background-index" },
+  filetypes = { "c", "cpp", "objc", "objcpp" },
+  init_options = {
+    clangdFileStatus = true,
+    usePlaceholders = true,
+    completeUnimported = true,
+  },
+})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
