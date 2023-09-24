@@ -71,7 +71,7 @@ require'nvim-web-devicons'.setup {
   ["cpp"] = {
     icons = "󰙲",
     color = "#e34c26",
-    name = "HTML"
+    name = "cpp"
   },
  };
 }
