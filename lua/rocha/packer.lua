@@ -18,7 +18,9 @@ return require('packer').startup(function(use)
     'lewis6991/gitsigns.nvim',
   }
 
+  -- Colorschemes
   use({ 'rose-pine/neovim', as = 'rose-pine' })
+  use('morhetz/gruvbox')
 
 	use ( 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use("nvim-treesitter/nvim-treesitter-context", {run = ':TSUpdate'});
@@ -66,5 +68,4 @@ return require('packer').startup(function(use)
         require('Comment').setup()
     end
   }
-
 end)
