@@ -1,6 +1,6 @@
 function SetColors(color, transparent)
-	-- color = color or "rose-pine"
-	color = color or "gruvbox"
+	color = color or "rose-pine"
+	-- color = color or "gruvbox"
 	-- color = color or "slate"
 	-- color = color or "habamax"
 	vim.cmd.colorscheme(color)
@@ -13,4 +13,5 @@ function SetColors(color, transparent)
   end
 
 end
-SetColors()
+
+SetColors("gruvbox", true)
