@@ -10,9 +10,11 @@ lsp.ensure_installed({
 -- Fix Undefined global 'vim'
 lsp.configure('lua-language-server', {
 	settings = {
-		Lua = {
+		lua = {
 			diagnostics = {
-				globals = { 'vim' }
+				globals = {
+          "vim"
+        }
 			}
 		}
 	}
