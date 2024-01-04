@@ -65,7 +65,7 @@ return require('packer').startup(function(use)
     config = function()
       require("lualine").setup {
         options = {
-          theme = "gruvbox",
+          theme = "base16",
           -- section_separators = { "", "" },
           -- component_separators = { "", "" },
           section_separators = { "" },

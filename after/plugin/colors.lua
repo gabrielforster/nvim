@@ -1,3 +1,7 @@
+require("rose-pine").setup({
+  disable_background = true
+})
+
 function SetColors(color, transparent)
 	color = color or "rose-pine"
 	-- color = color or "gruvbox"
@@ -14,4 +18,4 @@ function SetColors(color, transparent)
 
 end
 
-SetColors("gruvbox", true)
+SetColors(nil, true)
