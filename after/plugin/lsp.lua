@@ -7,17 +7,15 @@ lsp.ensure_installed({
 	"tsserver",
 })
 
--- Fix Undefined global 'vim'
-lsp.configure('lua-language-server', {
-	settings = {
-		lua = {
-			diagnostics = {
-				globals = {
-          "vim"
-        }
-			}
-		}
-	}
+-- Fix Undefined global "vim"
+lsp.configure("lua-language-server", {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" }
+      }
+    }
+  }
 })
 
 lspconfig.clangd.setup({
