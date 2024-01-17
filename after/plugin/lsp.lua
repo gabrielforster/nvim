@@ -5,6 +5,19 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
 	"tsserver",
+  "lua_ls",
+  "clangd",
+  "rust_analyzer",
+  "pyright",
+  "bashls",
+  "dockerls",
+  "gopls",
+  "html",
+  "jsonls",
+  "vimls",
+  "yamlls",
+  "cssls",
+  "tailwindcss",
 })
 
 -- Fix Undefined global "vim"
@@ -12,11 +25,23 @@ lsp.configure("lua-language-server", {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { "vim" }
+        globals = {
+          "vim"
+        }
       }
     }
   }
 })
+
+lspconfig.lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" }
+      }
+    }
+  }
+}
 
 lspconfig.clangd.setup({
   on_attach = function(client, buffer)
