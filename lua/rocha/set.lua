@@ -32,3 +32,8 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.g.netrw_banner = 0
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
