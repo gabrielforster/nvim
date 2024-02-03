@@ -16,5 +16,3 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 vim.keymap.set("n", "<C-j>", vim.cmd.tabp)
 vim.keymap.set("n", "<C-k>", vim.cmd.tabn)
-
-vim.keymap.set("n", "<leader>ll", vim.cmd.EslintFixAll)

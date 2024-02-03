@@ -17,6 +17,11 @@ return require("packer").startup(function(use)
 	use ( "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
   use("nvim-treesitter/nvim-treesitter-context", { run = ":TSUpdate" });
 
+  use {
+    "neoclide/coc.nvim",
+    branch = "release"
+  }
+
 	use {
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v1.x",
@@ -43,7 +48,7 @@ return require("packer").startup(function(use)
   -- Auto pairs and auto tags
   use {
     "windwp/nvim-autopairs",
-    config = function() 
+    config = function()
       require("nvim-autopairs").setup({})
     end
   }
@@ -55,7 +60,7 @@ return require("packer").startup(function(use)
   }
 
   use "ThePrimeagen/vim-be-good"
- 
+
   -- Makes easy to comment and uncomment code
   use {
    "numToStr/Comment.nvim",
@@ -70,7 +75,7 @@ return require("packer").startup(function(use)
     config = function()
       require("lualine").setup {
         options = {
-          theme = "base16",
+          -- theme = "base16",
           -- section_separators = { "", "" },
           -- component_separators = { "", "" },
           section_separators = { "" },
@@ -85,5 +90,9 @@ return require("packer").startup(function(use)
   use "nvim-tree/nvim-web-devicons"
   use("morhetz/gruvbox")
   use("RRethy/nvim-base16")
+
+  --
+  use("jose-elias-alvarez/null-ls.nvim")
+  use("MunifTanjim/eslint.nvim")
 
 end)
