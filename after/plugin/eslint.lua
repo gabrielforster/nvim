@@ -23,5 +23,3 @@ eslint.setup({
     run_on = "type", -- or `save`
   },
 })
-
-print("eslint.lua loaded from after")

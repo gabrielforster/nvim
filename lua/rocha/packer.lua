@@ -14,13 +14,14 @@ return require("packer").startup(function(use)
     "lewis6991/gitsigns.nvim",
   }
 
-	use ( "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-  use("nvim-treesitter/nvim-treesitter-context", { run = ":TSUpdate" });
+	use ("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+  use ("nvim-treesitter/nvim-treesitter-context", { run = ":TSUpdate" });
 
-  use {
+  use ({
     "neoclide/coc.nvim",
+    as = "coc",
     branch = "release"
-  }
+  })
 
 	use {
 		"VonHeikemen/lsp-zero.nvim",
@@ -94,5 +95,7 @@ return require("packer").startup(function(use)
   --
   use("jose-elias-alvarez/null-ls.nvim")
   use("MunifTanjim/eslint.nvim")
+
+  use("davidgranstrom/nvim-markdown-preview")
 
 end)
