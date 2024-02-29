@@ -81,7 +81,7 @@ return require("packer").startup(function(use)
           -- component_separators = { "", "" },
           section_separators = { "" },
           component_separators = { "" },
-          icons_enabled = true,
+          icons_enabled = false,
         },
       }
     end

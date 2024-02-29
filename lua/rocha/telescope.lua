@@ -4,4 +4,5 @@ require("telescope").setup{
       hidden = true,
     },
   },
+  file_ignore_patterns = { "node_modules", "target", "dist", "build", "out", "vendor" },
 }
