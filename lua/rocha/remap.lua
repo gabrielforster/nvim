@@ -16,3 +16,12 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 vim.keymap.set("n", "<C-j>", vim.cmd.tabp)
 vim.keymap.set("n", "<C-k>", vim.cmd.tabn)
+
+-- go error handling remap
+vim.keymap.set(
+  "n",
+  "<leader>ge",
+  "oif err != nil {<CR>}<Esc>Oreturn err<Esc><Esc>kk"
+)
+
+vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
