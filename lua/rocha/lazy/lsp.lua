@@ -12,10 +12,7 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "j-hui/fidget.nvim",
   },
-  opts = {
-    setup = {
-    },
-  },
+
   config = function()
     local cmp = require('cmp')
     local cmp_lsp = require("cmp_nvim_lsp")
@@ -37,13 +34,6 @@ return {
         function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup {
             capabilities = capabilities
-          }
-        end,
-
-        ["clangd"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.clangd.setup {
-            capabilities = { capabilities, offsetEncoding = { "utf-16" } }
           }
         end,
 
