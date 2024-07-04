@@ -13,7 +13,9 @@
   "eslint": { "branch": "main", "commit": "158f2289907d377018752fcfe0d61b746dc11767" },
   "fidget.nvim": { "branch": "main", "commit": "60404ba67044c6ab01894dd5bf77bd64ea5e09aa" },
   "gitsigns": { "branch": "main", "commit": "2c2463dbd82eddd7dbab881c3a62cfbfbe3c67ae" },
+  "gruvbox": { "branch": "main", "commit": "6e4027ae957cddf7b193adfaec4a8f9e03b4555f" },
   "lazy.nvim": { "branch": "main", "commit": "bef521ac89c8d423f9d092e37b58e8af0c099309" },
+  "lsp-ts-utils": { "branch": "main", "commit": "0a6a16ef292c9b61eac6dad00d52666c7f84b0e7" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "21d33d69a81f6351e5a5f49078b2e4f0075c8e73" },
   "mason.nvim": { "branch": "main", "commit": "3b5068f0fc565f337d67a2d315d935f574848ee7" },
   "null-ls": { "branch": "main", "commit": "0010ea927ab7c09ef0ce9bf28c2b573fc302f5a7" },
@@ -27,5 +29,6 @@
   "plenary.nvim": { "branch": "master", "commit": "4f71c0c4a196ceb656c824a70792f3df3ce6bb6d" },
   "rose-pine": { "branch": "main", "commit": "f977eeba34b030b37f93ece2fbd792477606203b" },
   "telescope.nvim": { "branch": "master", "commit": "d90956833d7c27e73c621a61f20b29fdb7122709" },
+  "tokyonight": { "branch": "main", "commit": "81c867c5f638597a82c82094dcb90ed42444dabc" },
   "vim-cool": { "branch": "master", "commit": "662e7b11064cbeedad17c45d2fe926e78d3cd0b6" }
 }
