@@ -5,10 +5,6 @@ return {
         config = function()
             require("null-ls").setup({
                 sources = {
-                    -- require("null-ls").builtins.formatting.eslint_d,
-                    -- require("null-ls").builtins.diagnostics.eslint_d,
-                    -- require("null-ls").builtins.code_actions.eslint_d,
-
                     require("null-ls").builtins.formatting.eslint,
                     require("null-ls").builtins.diagnostics.eslint,
                     require("null-ls").builtins.code_actions.eslint,
@@ -41,7 +37,7 @@ return {
                 diagnostics = {
                     enable = false, -- somehow diagnostics are running twice, so I'm disabling it here
                     report_unused_disable_directives = false,
-                    run_on = "type", -- or `save`
+                    run_on = "save", -- `type` or `save`
                 },
             })
         end

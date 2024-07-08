@@ -24,4 +24,11 @@ vim.keymap.set(
   "oif err != nil {<CR>}<Esc>Oreturn err<Esc><Esc>kk"
 )
 
+-- js/ts trycatch
+vim.keymap.set(
+  "n",
+  "<leader>tc",
+  "otry {<CR>} catch (err) {<CR>} <Esc>kO"
+)
+
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
