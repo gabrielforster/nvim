@@ -17,6 +17,8 @@ function Gruvbox()
 end
 
 return {
+    { "EdenEast/nightfox.nvim" },
+    { "rebelot/kanagawa.nvim" },
     {
         "rose-pine/neovim",
         name = "rose-pine",

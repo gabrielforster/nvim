@@ -32,3 +32,5 @@ vim.keymap.set(
 )
 
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
+
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)

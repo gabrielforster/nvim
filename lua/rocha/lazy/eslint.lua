@@ -21,7 +21,7 @@ return {
         name = "eslint",
         config = function()
             require("eslint").setup({
-                bin = "eslint", -- "eslint" or "eslint_d"
+                bin = "eslint_d", -- "eslint" or "eslint_d"
                 code_actions = {
                     enable = true,
                     apply_on_save = {
