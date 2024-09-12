@@ -4,7 +4,7 @@ return {
   {
     "numToStr/Comment.nvim",
     config = function()
-        require("Comment").setup()
+      require("Comment").setup()
     end
   },
   {
@@ -21,7 +21,11 @@ return {
   {
     "windwp/nvim-ts-autotag",
     config = function()
-	    require("nvim-ts-autotag").setup({})
+      require("nvim-ts-autotag").setup({})
     end
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
   }
 }
