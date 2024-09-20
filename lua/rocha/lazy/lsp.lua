@@ -67,27 +67,6 @@ return {
             }
           }
         end,
-
-        ["pyright"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.pyright.setup {
-            on_attach = function(client, bufnr)
-              client.resolved_capabilities.document_formatting = false
-              client.resolved_capabilities.document_range_formatting = false
-            end,
-            capabilities = capabilities,
-            filetypes = { "python" },
-            settings = {
-              python = {
-                analysis = {
-                  autoSearchPaths = true,
-                  diagnosticMode = "workspace",
-                  useLibraryCodeForTypes = true,
-                }
-              }
-            }
-          }
-        end,
       }
     })
 
