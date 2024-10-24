@@ -32,5 +32,5 @@ vim.opt.termguicolors = true
 -- vim.opt.colorcolumn = "80"
 vim.api.nvim_set_option_value("colorcolumn", "80", {})
 vim.cmd([[
-  autocmd ColorScheme * highlight ColorColumn ctermbg=red guibg=#FF0000
+  autocmd ColorScheme * highlight ColorColumn ctermbg=red guibg=#440000
 ]])
