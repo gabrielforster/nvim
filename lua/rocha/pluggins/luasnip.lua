@@ -3,7 +3,7 @@ return {
   version = "v2.*",
   build = "make install_jsregexp",
   config = function()
-    require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/grocha/snippets/" })
+    require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/gabrielrocha/snippets/" })
 
     local ls = require("luasnip")
     -- vim.keymap.set({ "i", "s" }, "<C-c>", function()
