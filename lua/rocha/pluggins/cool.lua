@@ -2,12 +2,6 @@ return {
   "romainl/vim-cool", -- highlight only current search
   "davidgranstrom/nvim-markdown-preview",
   {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup()
-    end
-  },
-  {
     "neoclide/coc.nvim",
     name = "coc",
     branch = "release"

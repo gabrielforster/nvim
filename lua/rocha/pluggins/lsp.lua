@@ -7,17 +7,16 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
+    "jcha0713/cmp-tw2css",
     "hrsh7th/nvim-cmp",
-    "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip",
-    "j-hui/fidget.nvim",
   },
-  opts = {
-    setup = {
-    },
-  },
+
   config = function()
-    local cmp = require('cmp')
+    vim.diagnostic.config({
+      float = { border = "rounded" }
+    })
+
+    local cmp = require("cmp")
     local cmp_lsp = require("cmp_nvim_lsp")
     local capabilities = vim.tbl_deep_extend(
       "force",
@@ -25,22 +24,18 @@ return {
       vim.lsp.protocol.make_client_capabilities(),
       cmp_lsp.default_capabilities())
 
-    require("fidget").setup({})
-    require("mason").setup({
-      ensure_installed = {
-        "js-debug-adapter"
-      }
-    })
+    require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
         "rust_analyzer",
-        "pyright",
+        "tinymist",
       },
+
       handlers = {
         function(server_name) -- default handler (optional)
-          if server_name == 'tsserver' then
-            server_name = 'ts_ls'
+          if server_name == "tsserver" then
+            server_name = "ts_ls"
           end
           require("lspconfig")[server_name].setup {
             capabilities = capabilities
@@ -60,8 +55,9 @@ return {
             capabilities = capabilities,
             settings = {
               Lua = {
+                runtime = { version = "Lua 5.1" },
                 diagnostics = {
-                  globals = { "vim", "it", "describe", "before_each", "after_each" },
+                  globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
                 }
               }
             }
@@ -70,12 +66,29 @@ return {
       }
     })
 
-    local cmp_select = { behavior = cmp.SelectBehavior.Select }
+    local l = vim.lsp
+    l.handlers["textDocument/hover"] = function(_, result, ctx, config)
+      config = config or { border = "rounded", focusable = true }
+      config.focus_id = ctx.method
+      if not (result and result.contents) then
+        return
+      end
+      local markdown_lines = l.util.convert_input_to_markdown_lines(result.contents)
+      markdown_lines = vim.tbl_filter(function(line)
+        return line ~= ""
+      end, markdown_lines)
+      if vim.tbl_isempty(markdown_lines) then
+        return
+      end
+      return l.util.open_floating_preview(markdown_lines, "markdown", config)
+    end
 
+    local cmp_select = { behavior = cmp.SelectBehavior.Select }
+    vim.api.nvim_set_hl(0, "CmpNromal", {})
     cmp.setup({
       snippet = {
         expand = function(args)
-          require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+          require("luasnip").lsp_expand(args.body)
         end,
       },
       mapping = cmp.mapping.preset.insert({
@@ -85,24 +98,30 @@ return {
         ["<Enter>"] = cmp.mapping.confirm({ select = true }),
         ["<C-Space>"] = cmp.mapping.complete(),
       }),
-      sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' }, -- For luasnip users.
-      }, {
-        { name = 'buffer' },
-      })
-    })
-
-    vim.diagnostic.config({
-      -- update_in_insert = true,
-      float = {
-        focusable = false,
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
+      window = {
+        completion = {
+          scrollbar = false,
+          border = "rounded",
+          winhighlight = "Normal:CmpNromal",
+        },
+        documentation = {
+          scrollbar = false,
+          border = "rounded",
+          winhighlight = "Normal:CmpNromal",
+        }
       },
+      sources = cmp.config.sources({
+        {
+          name = "nvim_lsp",
+          entry_filter = function(entry, ctx)
+            print(entry)
+            return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+          end,
+        },
+        {
+          name = "cmp-tw2css"
+        }
+      }, {})
     })
   end
 }

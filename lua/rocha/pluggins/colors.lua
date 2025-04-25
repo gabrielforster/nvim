@@ -1,6 +1,7 @@
 function SetColors(color, bg)
   -- color = color or "tokyonight"
-  color = color or "gruvbox"
+  -- color = color or "gruvbox"
+  color = color or "vague"
   vim.cmd.colorscheme(color)
 
   if bg then
@@ -46,7 +47,7 @@ return {
         invert_signs = false,
         invert_tabline = false,
         invert_intend_guides = false,
-        inverse = true, -- invert background for search, diffs, statuslines and errors
+        inverse = true,    -- invert background for search, diffs, statuslines and errors
         contrast = "soft", -- can be "hard", "soft" or empty string
         palette_overrides = {},
         overrides = {},
@@ -116,5 +117,11 @@ return {
         extensions = { "nvim-tree" },
       })
     end,
+  },
+  {
+    "vague2k/vague.nvim",
+    config = function()
+      require("vague").setup({ transparent = true })
+    end
   }
 }
