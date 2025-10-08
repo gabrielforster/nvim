@@ -20,12 +20,6 @@ return {
     "MunifTanjim/eslint.nvim",
     name = "eslint",
     config = function()
-      local has_eslint = vim.fn.findfile("*eslint*", 0, 1) ~= ""
-
-      if not has_eslint then
-        return nil
-      end
-
       require("eslint").setup({
         bin = "eslint_d", -- "eslint" or "eslint_d"
         code_actions = {
