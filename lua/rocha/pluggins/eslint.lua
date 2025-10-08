@@ -1,20 +1,20 @@
 return {
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvimtools/none-ls-extras.nvim"
+    },
     name = "null-ls",
     config = function()
       require("null-ls").setup({
         sources = {
-          require("null-ls").builtins.formatting.eslint,
-          require("null-ls").builtins.diagnostics.eslint,
-          require("null-ls").builtins.code_actions.eslint,
+          require("none-ls.formatting.eslint_d"),
+          require("none-ls.diagnostics.eslint_d"),
+          require("none-ls.code_actions.eslint_d"),
         },
       })
     end
-  },
-  {
-    "jose-elias-alvarez/nvim-lsp-ts-utils",
-    name = "lsp-ts-utils"
   },
   {
     "MunifTanjim/eslint.nvim",
