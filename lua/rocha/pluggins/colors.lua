@@ -1,7 +1,9 @@
 function SetColors(color, bg)
   -- color = color or "tokyonight"
   -- color = color or "gruvbox"
-  color = color or "vague"
+  -- color = color or "lunaperche"
+  -- color = color or "vscode"
+  color = color or "kanagawa-dragon"
   vim.cmd.colorscheme(color)
 
   if bg then
@@ -11,6 +13,7 @@ function SetColors(color, bg)
 end
 
 return {
+  { "Mofiqul/vscode.nvim" },
   { "EdenEast/nightfox.nvim" },
   { "rebelot/kanagawa.nvim" },
   { "huyvohcmc/atlas.vim" },
