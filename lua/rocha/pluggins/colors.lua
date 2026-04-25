@@ -3,7 +3,9 @@ function SetColors(color, bg)
   -- color = color or "gruvbox"
   -- color = color or "lunaperche"
   -- color = color or "vscode"
-  color = color or "kanagawa-dragon"
+  -- color = color or "kanagawa-dragon"
+  -- color = color or "vague"
+  color = color or "rose-pine"
   vim.cmd.colorscheme(color)
 
   if bg then
