@@ -97,7 +97,6 @@ return {
         {
           name = "nvim_lsp",
           entry_filter = function(entry, ctx)
-            print(entry)
             return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
           end,
         }
