@@ -53,7 +53,7 @@ autocmd({ "BufWritePre" }, {
 autocmd("LspAttach", {
     group = RochaGroup,
     callback = function(e)
-        local opts = { buffer = e.buf }
+        local opts = { buf = e.buf }
         setupMaps(opts)
     end
 })
