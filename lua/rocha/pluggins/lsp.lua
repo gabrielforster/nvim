@@ -12,7 +12,8 @@ return {
 
   config = function()
     vim.diagnostic.config({
-      float = { border = "rounded" }
+      float = { border = "rounded" },
+      virtual_text = true,
     })
 
     local cmp = require("cmp")
