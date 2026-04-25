@@ -7,7 +7,6 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
-    "jcha0713/cmp-tw2css",
     "hrsh7th/nvim-cmp",
   },
 
@@ -117,9 +116,6 @@ return {
             print(entry)
             return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
           end,
-        },
-        {
-          name = "cmp-tw2css"
         }
       }, {})
     })
