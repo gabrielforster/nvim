@@ -25,10 +25,12 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
-vim.opt.updatetime = 50
+vim.opt.updatetime = 250
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.termguicolors = true
+vim.opt.completeopt = "menuone,noselect,popup"
+vim.opt.pumborder = "rounded"
 
 vim.api.nvim_set_option_value("colorcolumn", "80", {})
 vim.cmd([[

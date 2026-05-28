@@ -1,106 +1,21 @@
 return {
-  "neovim/nvim-lspconfig",
-  dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/nvim-cmp",
-  },
-
+  "williamboman/mason.nvim",
+  lazy = false,
   config = function()
+    require("mason").setup()
+
     vim.diagnostic.config({
       float = { border = "rounded" },
       virtual_text = true,
     })
 
-    local cmp = require("cmp")
-    local cmp_lsp = require("cmp_nvim_lsp")
-    local capabilities = vim.tbl_deep_extend(
-      "force",
-      {},
-      vim.lsp.protocol.make_client_capabilities(),
-      cmp_lsp.default_capabilities())
-
-    require("mason").setup()
-    require("mason-lspconfig").setup({
-      ensure_installed = {
-        "lua_ls",
-        "rust_analyzer",
-        "tinymist",
-      },
-
-      handlers = {
-        function(server_name) -- default handler (optional)
-          if server_name == "tsserver" then
-            server_name = "ts_ls"
-          end
-          require("lspconfig")[server_name].setup {
-            capabilities = capabilities
-          }
-        end,
-
-        ["clangd"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.clangd.setup {
-            capabilities = { capabilities, offsetEncoding = { "utf-16" } }
-          }
-        end,
-
-        ["lua_ls"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.lua_ls.setup {
-            capabilities = capabilities,
-            settings = {
-              Lua = {
-                runtime = { version = "Lua 5.1" },
-                diagnostics = {
-                  globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
-                }
-              }
-            }
-          }
-        end,
-      }
+    vim.lsp.enable({
+      'lua_ls',
+      'rust_analyzer',
+      'tinymist',
+      'vtsls',
+      'vue_ls',
+      'clangd',
     })
-
-    local cmp_select = { behavior = cmp.SelectBehavior.Select }
-    vim.api.nvim_set_hl(0, "CmpNromal", {})
-    cmp.setup({
-      snippet = {
-        expand = function(args)
-          require("luasnip").lsp_expand(args.body)
-        end,
-      },
-      mapping = cmp.mapping.preset.insert({
-        ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-        ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-        ["<Enter>"] = cmp.mapping.confirm({ select = true }),
-        ["<C-Space>"] = cmp.mapping.complete(),
-      }),
-      window = {
-        completion = {
-          scrollbar = false,
-          border = "rounded",
-          winhighlight = "Normal:CmpNromal",
-        },
-        documentation = {
-          scrollbar = false,
-          border = "rounded",
-          winhighlight = "Normal:CmpNromal",
-        }
-      },
-      sources = cmp.config.sources({
-        {
-          name = "nvim_lsp",
-          entry_filter = function(entry, ctx)
-            return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
-          end,
-        }
-      }, {})
-    })
-  end
+  end,
 }

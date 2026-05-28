@@ -5,7 +5,8 @@ function SetColors(color, bg)
   -- color = color or "vscode"
   -- color = color or "kanagawa-dragon"
   -- color = color or "vague"
-  color = color or "rose-pine"
+  -- color = color or "rose-pine"
+  color = color or "moonfly"
   vim.cmd.colorscheme(color)
 
   if bg then
@@ -19,6 +20,7 @@ return {
   { "EdenEast/nightfox.nvim" },
   { "rebelot/kanagawa.nvim" },
   { "huyvohcmc/atlas.vim" },
+  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
   {
     "rose-pine/neovim",
     name = "rose-pine",
