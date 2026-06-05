@@ -16,6 +16,7 @@ return {
       'vtsls',
       'vue_ls',
       'clangd',
+      'gopls',
     })
   end,
 }
