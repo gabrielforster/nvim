@@ -59,6 +59,13 @@ vim.keymap.set('i', '<C-Space>', function()
     vim.lsp.completion.get()
 end)
 
+vim.keymap.set('i', '<C-y>', function()
+    if vim.fn.pumvisible() == 1 and vim.fn.complete_info({ 'selected' }).selected == -1 then
+        return '<C-n><C-y>'
+    end
+    return '<C-y>'
+end, { expr = true })
+
 vim.keymap.set({ 'i', 's' }, '<C-J>', function()
     if vim.snippet.active({ direction = 1 }) then
         vim.snippet.jump(1)
