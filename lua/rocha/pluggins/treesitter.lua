@@ -5,7 +5,7 @@ return {
   opts = {
     ensure_installed = {
       "vimdoc", "javascript", "typescript", "c", "lua", "rust",
-      "jsdoc", "bash", "go", "json", "yaml", "toml", "html",
+      "jsdoc", "bash", "go", "python", "json", "yaml", "toml", "html",
     },
     sync_install = false,
     auto_install = true,

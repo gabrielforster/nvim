@@ -17,6 +17,7 @@ return {
       'vue_ls',
       'clangd',
       'gopls',
+      'pyright',
     })
   end,
 }
